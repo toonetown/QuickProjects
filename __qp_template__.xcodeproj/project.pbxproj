@@ -28,7 +28,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0830;
-				ORGANIZATIONNAME = Symantec;
+				ORGANIZATIONNAME = Toonetown;
 			};
 			buildConfigurationList = 88F98B2C1ED76CAA00D57859 /* Build configuration list for PBXProject "__qp_template__" */;
 			compatibilityVersion = "Xcode 3.2";
