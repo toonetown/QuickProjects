@@ -30,7 +30,7 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Symantec;
 			};
-			buildConfigurationList = 88F98B2C1ED76CAA00D57859 /* Build configuration list for PBXProject "QuickProjects" */;
+			buildConfigurationList = 88F98B2C1ED76CAA00D57859 /* Build configuration list for PBXProject "__qp_template__" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -166,7 +166,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		88F98B2C1ED76CAA00D57859 /* Build configuration list for PBXProject "QuickProjects" */ = {
+		88F98B2C1ED76CAA00D57859 /* Build configuration list for PBXProject "__qp_template__" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				88F98B361ED76CAA00D57859 /* Debug */,

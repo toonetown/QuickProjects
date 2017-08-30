@@ -18,7 +18,7 @@ TARGET="${1}"
 }
 
 TGT_NAME="$(basename "${TARGET}")"
-SRC_NAME="$(basename "${SOURCE}")"
+: ${SRC_NAME:="__qp_template__"}
 
 echo "Copying to '${TARGET}'..."
 cp -R "${SOURCE}" "${TARGET}" || exit $?
