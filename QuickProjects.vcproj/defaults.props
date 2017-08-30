@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <THIRD_PARTY_ROOT>$(SolutionDir)..\third_party\</THIRD_PARTY_ROOT>
+    <THIRD_PARTY_LIBDIR>objdir-windows.$(THIRD_PARTY_LIBARCH)\lib\</THIRD_PARTY_LIBDIR>
+    <THIRD_PARTY_INCDIR>include\</THIRD_PARTY_INCDIR>
+    <BOOST_VERSION>boost-1.65.0</BOOST_VERSION>
+    <BOOST_ROOT>$(THIRD_PARTY_ROOT)boost\$(BOOST_VERSION)\</BOOST_ROOT>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutDir>$(SolutionDir)..\build\$(Configuration)\Windows\$(Platform)\</OutDir>
+    <IntDir>$(OutDir)intermediate</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>BOOST_ALL_NO_LIB;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(BOOST_ROOT)\$(THIRD_PARTY_INCDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(BOOST_ROOT)\$(THIRD_PARTY_LIBDIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="THIRD_PARTY_ROOT">
+      <Value>$(THIRD_PARTY_ROOT)</Value>
+    </BuildMacro>
+    <BuildMacro Include="THIRD_PARTY_LIBDIR">
+      <Value>$(THIRD_PARTY_LIBDIR)</Value>
+    </BuildMacro>
+    <BuildMacro Include="THIRD_PARTY_INCDIR">
+      <Value>$(THIRD_PARTY_INCDIR)</Value>
+    </BuildMacro>
+    <BuildMacro Include="BOOST_VERSION">
+      <Value>$(BOOST_VERSION)</Value>
+    </BuildMacro>
+    <BuildMacro Include="BOOST_ROOT">
+      <Value>$(BOOST_ROOT)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
