@@ -10,13 +10,14 @@
   </PropertyGroup>
   <PropertyGroup>
     <OutDir>$(SolutionDir)..\build\$(Configuration)\Windows\$(Platform)\</OutDir>
-    <IntDir>$(OutDir)intermediate</IntDir>
+    <IntDir>$(OutDir)intermediate\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
       <PreprocessorDefinitions>BOOST_ALL_NO_LIB;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(BOOST_ROOT)\$(THIRD_PARTY_INCDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(BOOST_ROOT)\$(THIRD_PARTY_LIBDIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
