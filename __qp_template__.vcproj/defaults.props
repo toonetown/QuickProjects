@@ -10,7 +10,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <OutDir>$(SolutionDir)..\build\$(Configuration)\Windows\$(Platform)\</OutDir>
-    <IntDir>$(OutDir)intermediate\</IntDir>
+    <IntDir>$(OutDir)intermediate\$(ProjectName).build\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
