@@ -5,7 +5,7 @@
     <THIRD_PARTY_ROOT>$(SolutionDir)..\third_party\</THIRD_PARTY_ROOT>
     <THIRD_PARTY_LIBDIR>objdir-windows.$(THIRD_PARTY_LIBARCH)\lib\</THIRD_PARTY_LIBDIR>
     <THIRD_PARTY_INCDIR>include\</THIRD_PARTY_INCDIR>
-    <BOOST_VERSION>boost-1.65.0</BOOST_VERSION>
+    <BOOST_VERSION>boost-1.65.1</BOOST_VERSION>
     <BOOST_ROOT>$(THIRD_PARTY_ROOT)boost\$(BOOST_VERSION)\</BOOST_ROOT>
   </PropertyGroup>
   <PropertyGroup>
