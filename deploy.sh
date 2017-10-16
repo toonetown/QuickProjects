@@ -28,8 +28,8 @@ rm -rf "${TARGET}/.git" "${TARGET}/README.md" "${TARGET}/$(basename "${0}")" || 
 find "${TARGET}" -name ".DS_Store" -exec rm -f {} \;
 
 echo "Renaming files..."
-find "${TARGET}" -d -name "${SRC_NAME}.*" -print0 | while IFS= read -r -d '' _F; do
-    mv "${_F}" "$(echo "${_F}" | sed -e "s/${SRC_NAME}\(\.[^\.]*\)$/${TGT_NAME}\1/g")" || exit $?
+find "${TARGET}" -d -name "${SRC_NAME}*" -print0 | while IFS= read -r -d '' _F; do
+    mv "${_F}" "$(echo "${_F}" | sed -e "s/${SRC_NAME}\([\._][^\.]*\)$/${TGT_NAME}\1/g")" || exit $?
 done
 
 echo "Update project name to ${TGT_NAME}..."

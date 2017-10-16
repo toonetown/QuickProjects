@@ -6,10 +6,27 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXFileReference section */
+		88D848261F95163400AEF23A /* defaults.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = defaults.xcconfig; sourceTree = "<group>"; };
+		88D848271F95167200AEF23A /* defaults-debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "defaults-debug.xcconfig"; sourceTree = "<group>"; };
+		88D848281F95167200AEF23A /* defaults-release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "defaults-release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
+		88D848291F95167500AEF23A /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				88D848261F95163400AEF23A /* defaults.xcconfig */,
+				88D848271F95167200AEF23A /* defaults-debug.xcconfig */,
+				88D848281F95167200AEF23A /* defaults-release.xcconfig */,
+			);
+			name = Configs;
+			sourceTree = "<group>";
+		};
 		88F98B281ED76CAA00D57859 = {
 			isa = PBXGroup;
 			children = (
+				88D848291F95167500AEF23A /* Configs */,
 				88F98B321ED76CAA00D57859 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,16 +66,10 @@
 /* Begin XCBuildConfiguration section */
 		88F98B361ED76CAA00D57859 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88D848271F95167200AEF23A /* defaults-debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				BOOST_ROOT = "$(THIRD_PARTY_ROOT)/boost/$(BOOST_VERSION)";
-				BOOST_VERSION = "boost-1.65.1";
-				BUILD_DIR = "$(PROJECT_DIR)/build";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -76,23 +87,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/macOS";
-				CONFIGURATION_TEMP_DIR = "$(CONFIGURATION_BUILD_DIR)/intermediate";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					_DEBUG,
-					"DEBUG=1",
-					"__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -100,30 +94,19 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LIBRARY_SEARCH_PATHS = (
-					"$(BOOST_ROOT)/$(THIRD_PARTY_LIBDIR)",
+					"$(BOOST_LIBDIR)",
 					"$(inherited)",
 				);
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
-				SYSTEM_HEADER_SEARCH_PATHS = "$(BOOST_ROOT)/$(THIRD_PARTY_INCDIR) $(inherited)";
-				THIRD_PARTY_INCDIR = include;
-				THIRD_PARTY_LIBDIR = "objdir-macosx/lib";
-				THIRD_PARTY_ROOT = "$(PROJECT_DIR)/third_party";
+				SYSTEM_HEADER_SEARCH_PATHS = "$(BOOST_INCDIR) $(inherited)";
 			};
 			name = Debug;
 		};
 		88F98B371ED76CAA00D57859 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88D848281F95167200AEF23A /* defaults-release.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				BOOST_ROOT = "$(THIRD_PARTY_ROOT)/boost/$(BOOST_VERSION)";
-				BOOST_VERSION = "boost-1.65.1";
-				BUILD_DIR = "$(PROJECT_DIR)/build";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -141,22 +124,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/macOS";
-				CONFIGURATION_TEMP_DIR = "$(CONFIGURATION_BUILD_DIR)/intermediate";
-				COPY_PHASE_STRIP = YES;
-				DEAD_CODE_STRIPPING = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEPLOYMENT_POSTPROCESSING = YES;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					NDEBUG,
-					"__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -164,14 +131,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LIBRARY_SEARCH_PATHS = (
-					"$(BOOST_ROOT)/$(THIRD_PARTY_LIBDIR)",
+					"$(BOOST_LIBDIR)",
 					"$(inherited)",
 				);
-				SDKROOT = macosx;
-				SYSTEM_HEADER_SEARCH_PATHS = "$(BOOST_ROOT)/$(THIRD_PARTY_INCDIR) $(inherited)";
-				THIRD_PARTY_INCDIR = include;
-				THIRD_PARTY_LIBDIR = "objdir-macosx/lib";
-				THIRD_PARTY_ROOT = "$(PROJECT_DIR)/third_party";
+				SYSTEM_HEADER_SEARCH_PATHS = "$(BOOST_INCDIR) $(inherited)";
 			};
 			name = Release;
 		};

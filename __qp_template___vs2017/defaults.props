@@ -7,6 +7,8 @@
     <THIRD_PARTY_INCDIR>include\</THIRD_PARTY_INCDIR>
     <BOOST_VERSION>boost-1.65.1</BOOST_VERSION>
     <BOOST_ROOT>$(THIRD_PARTY_ROOT)boost\$(BOOST_VERSION)\</BOOST_ROOT>
+    <BOOST_INCDIR>$(BOOST_ROOT)$(THIRD_PARTY_INCDIR)\</BOOST_INCDIR>
+    <BOOST_LIBDIR>$(BOOST_ROOT)$(THIRD_PARTY_LIBDIR)\</BOOST_LIBDIR>
   </PropertyGroup>
   <PropertyGroup>
     <OutDir>$(SolutionDir)..\build\$(Configuration)\Windows\$(Platform)\</OutDir>
@@ -15,12 +17,12 @@
   <ItemDefinitionGroup>
     <ClCompile>
       <PreprocessorDefinitions>BOOST_ALL_NO_LIB;_WIN32_WINNT=0x0501;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(BOOST_ROOT)\$(THIRD_PARTY_INCDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(BOOST_INCDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(BOOST_ROOT)\$(THIRD_PARTY_LIBDIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(BOOST_LIBDIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -39,6 +41,12 @@
     </BuildMacro>
     <BuildMacro Include="BOOST_ROOT">
       <Value>$(BOOST_ROOT)</Value>
+    </BuildMacro>
+    <BuildMacro Include="BOOST_INCDIR">
+      <Value>$(BOOST_INCDIR)</Value>
+    </BuildMacro>
+    <BuildMacro Include="BOOST_LIBDIR">
+      <Value>$(BOOST_LIBDIR)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>
