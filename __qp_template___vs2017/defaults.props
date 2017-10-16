@@ -7,8 +7,8 @@
     <THIRD_PARTY_INCDIR>include\</THIRD_PARTY_INCDIR>
     <BOOST_VERSION>boost-1.65.1</BOOST_VERSION>
     <BOOST_ROOT>$(THIRD_PARTY_ROOT)boost\$(BOOST_VERSION)\</BOOST_ROOT>
-    <BOOST_INCDIR>$(BOOST_ROOT)$(THIRD_PARTY_INCDIR)\</BOOST_INCDIR>
-    <BOOST_LIBDIR>$(BOOST_ROOT)$(THIRD_PARTY_LIBDIR)\</BOOST_LIBDIR>
+    <BOOST_INCDIR>$(BOOST_ROOT)$(THIRD_PARTY_INCDIR)</BOOST_INCDIR>
+    <BOOST_LIBDIR>$(BOOST_ROOT)$(THIRD_PARTY_LIBDIR)</BOOST_LIBDIR>
   </PropertyGroup>
   <PropertyGroup>
     <OutDir>$(SolutionDir)..\build\$(Configuration)\Windows\$(Platform)\</OutDir>
@@ -16,7 +16,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <PreprocessorDefinitions>BOOST_ALL_NO_LIB;_WIN32_WINNT=0x0501;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>BOOST_ALL_NO_LIB;_WIN32_WINNT=0x0600;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(BOOST_INCDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
