@@ -2,7 +2,10 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <THIRD_PARTY_ROOT>$(SolutionDir)..\third_party\</THIRD_PARTY_ROOT>
+    <PROJECT_ROOT>$(SolutionDir)..\</PROJECT_ROOT>
+    <SOURCE_ROOT>$(PROJECT_ROOT)source\</SOURCE_ROOT>
+    <BUILD_ROOT>$(PROJECT_ROOT)build\</BUILD_ROOT>
+    <THIRD_PARTY_ROOT>$(PROJECT_ROOT)third_party\</THIRD_PARTY_ROOT>
     <THIRD_PARTY_LIBDIR>objdir-windows.$(THIRD_PARTY_LIBARCH)\lib\</THIRD_PARTY_LIBDIR>
     <THIRD_PARTY_INCDIR>include\</THIRD_PARTY_INCDIR>
     <BOOST_VERSION>boost-1.65.1</BOOST_VERSION>
@@ -11,13 +14,13 @@
     <BOOST_LIBDIR>$(BOOST_ROOT)$(THIRD_PARTY_LIBDIR)</BOOST_LIBDIR>
   </PropertyGroup>
   <PropertyGroup>
-    <OutDir>$(SolutionDir)..\build\$(Configuration)\Windows\$(Platform)\</OutDir>
+    <OutDir>$(BUILD_ROOT)$(Configuration)\Windows\$(Platform)\</OutDir>
     <IntDir>$(OutDir)intermediate\$(ProjectName).build\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
       <PreprocessorDefinitions>BOOST_ALL_NO_LIB;WINVER=0x0601;_WIN32_WINNT=0x0601;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(BOOST_INCDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SOURCE_ROOT);$(BOOST_INCDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
@@ -27,6 +30,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <BuildMacro Include="PROJECT_ROOT">
+      <Value>$(PROJECT_ROOT)</Value>
+    </BuildMacro>
+    <BuildMacro Include="SOURCE_ROOT">
+      <Value>$(SOURCE_ROOT)</Value>
+    </BuildMacro>
+    <BuildMacro Include="BUILD_ROOT">
+      <Value>$(BUILD_ROOT)</Value>
+    </BuildMacro>
     <BuildMacro Include="THIRD_PARTY_ROOT">
       <Value>$(THIRD_PARTY_ROOT)</Value>
     </BuildMacro>
