@@ -44,7 +44,7 @@
 		88F98B291ED76CAA00D57859 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Toonetown;
 			};
 			buildConfigurationList = 88F98B2C1ED76CAA00D57859 /* Build configuration list for PBXProject "__qp_template__" */;
@@ -87,6 +87,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -97,6 +98,7 @@
 					"$(BOOST_LIBDIR)",
 					"$(inherited)",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				SYSTEM_HEADER_SEARCH_PATHS = "$(BOOST_INCDIR) $(inherited)";
 			};
 			name = Debug;
