@@ -22,9 +22,10 @@ TGT_NAME="$(basename "${TARGET}")"
 : ${SRC_NAME:="__${TAG_NAME}__"}
 
 # Tags to replace
-TGT_TAGS="name identifier"
+TGT_TAGS="name identifier organization"
 : ${TGT_name:="${TGT_NAME}"}
 : ${TGT_identifier:="com.toonetown.$(echo "${TGT_name}" | sed -e 's/ /-/g')"}
+: ${TGT_organization:="Toonetown"}
 
 echo "Copying to '${TARGET}'..."
 cp -R "${SOURCE}" "${TARGET}" || exit $?
