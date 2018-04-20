@@ -1,7 +1,11 @@
-#include "defaults.xcconfig"
+// Variables to use for naming/scripts
+CONFIGURATION = Release
 
 // Build configuration
-GCC_PREPROCESSOR_DEFINITIONS = NDEBUG $(GCC_PREPROCESSOR_DEFINITIONS_ALL)
+GCC_PREPROCESSOR_DEFINITIONS_CFG = NDEBUG
 DEPLOYMENT_POSTPROCESSING = YES
 DEAD_CODE_STRIPPING = YES
 COPY_PHASE_STRIP = YES
+
+// Include the "shared" default options last, so it can reference stuff from here
+#include "defaults.xcconfig"

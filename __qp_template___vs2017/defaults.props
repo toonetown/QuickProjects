@@ -1,64 +1,115 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ImportGroup Label="PropertySheets" />
+
+  <!-- Import platform and configuration properties -->
+  <Import Project="defaults-$(Platform).props" />
+  <Import Project="defaults-$(Configuration).props" />
+
+  <!-- User Macros -->
   <PropertyGroup Label="UserMacros">
-    <PROJECT_ROOT>$(SolutionDir)..\</PROJECT_ROOT>
-    <SOURCE_ROOT>$(PROJECT_ROOT)source\</SOURCE_ROOT>
-    <BUILD_ROOT>$(PROJECT_ROOT)build\</BUILD_ROOT>
-    <THIRD_PARTY_ROOT>$(PROJECT_ROOT)third_party\</THIRD_PARTY_ROOT>
-    <THIRD_PARTY_LIBDIR>objdir-windows.$(THIRD_PARTY_LIBARCH)\lib\</THIRD_PARTY_LIBDIR>
-    <THIRD_PARTY_INCDIR>include\</THIRD_PARTY_INCDIR>
-    <BOOST_VERSION>boost-1.66.0</BOOST_VERSION>
-    <BOOST_ROOT>$(THIRD_PARTY_ROOT)boost\$(BOOST_VERSION)\</BOOST_ROOT>
-    <BOOST_INCDIR>$(BOOST_ROOT)$(THIRD_PARTY_INCDIR)</BOOST_INCDIR>
-    <BOOST_LIBDIR>$(BOOST_ROOT)$(THIRD_PARTY_LIBDIR)</BOOST_LIBDIR>
+    <!-- Macros for main locations -->
+    <PROJECT_ROOT>$(SolutionDir)..</PROJECT_ROOT>
+    <SOURCE_ROOT_REL>source</SOURCE_ROOT_REL>                         <!-- Relative to PROJECT_ROOT -->
+    <SOURCE_ROOT>$(PROJECT_ROOT)\$(SOURCE_ROOT_REL)\</SOURCE_ROOT>
+    
+    <!-- Build-specific locations -->
+    <BUILD_ROOT_REL>build</BUILD_ROOT_REL>                            <!-- Relative to PROJECT_ROOT -->
+    <BUILD_ROOT>$(PROJECT_ROOT)\$(BUILD_ROOT_REL)</BUILD_ROOT>
+    <BUILD_OUTDIR_REL>$(Platform)\$(Configuration)</BUILD_OUTDIR_REL> <!-- Relative to BUILD_ROOT -->
+    <BUILD_OUTDIR>$(BUILD_ROOT)\$(BUILD_OUTDIR_REL)</BUILD_OUTDIR>
+    <BUILD_TEMPDIR_REL>intermediate</BUILD_TEMPDIR_REL>               <!-- Relative to BUILD_OUTDIR -->
+    <BUILD_TEMPDIR>$(BUILD_OUTDIR)\$(BUILD_TEMPDIR_REL)</BUILD_TEMPDIR>
+    
+    <!-- Third party locations -->
+    <THIRD_PARTY_ROOT_REL>third_party</THIRD_PARTY_ROOT_REL>          <!-- Relative to PROJECT_ROOT -->
+    <THIRD_PARTY_ROOT>$(PROJECT_ROOT)\$(THIRD_PARTY_ROOT_REL)</THIRD_PARTY_ROOT>
+    <THIRD_PARTY_INCDIR_REL>include</THIRD_PARTY_INCDIR_REL>
+    <THIRD_PARTY_LIBDIR_PRE>objdir</THIRD_PARTY_LIBDIR_PRE>
+    <THIRD_PARTY_LIBDIR_SUF>windows-msvc-14.0.$(THIRD_PARTY_LIBARCH)\lib</THIRD_PARTY_LIBDIR_SUF>
+    <THIRD_PARTY_LIBDIR_REL>$(THIRD_PARTY_LIBDIR_PRE)-$(THIRD_PARTY_LIBDIR_SUF)</THIRD_PARTY_LIBDIR_REL>
+    
+    <!-- Boost information -->
+    <BOOST_VERSION>1.66.0</BOOST_VERSION>
+    <BOOST_ROOT>$(THIRD_PARTY_ROOT)\boost\boost-$(BOOST_VERSION)</BOOST_ROOT>
+    <BOOST_INCDIR>$(BOOST_ROOT)\$(THIRD_PARTY_INCDIR_REL)</BOOST_INCDIR>
+    <BOOST_LIBDIR>$(BOOST_ROOT)\$(THIRD_PARTY_LIBDIR_REL)</BOOST_LIBDIR>
+    <BOOST_LIBS>libboost_chrono$(THIRD_PARTY_LIBEXT);libboost_date_time$(THIRD_PARTY_LIBEXT);libboost_filesystem$(THIRD_PARTY_LIBEXT);libboost_program_options$(THIRD_PARTY_LIBEXT);libboost_thread$(THIRD_PARTY_LIBEXT);libboost_system$(THIRD_PARTY_LIBEXT)</BOOST_LIBS>
   </PropertyGroup>
+ 
+  <!-- Export the user macros -->
+  <ItemGroup>
+    <!-- Macros defined by the build system -->
+    <BuildMacro Include="PLATFORM"><Value>$(Platform)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    <BuildMacro Include="CONFIGURATION"><Value>$(Configuration)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    <BuildMacro Include="SOLUTION_NAME"><Value>$(SolutionName)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>    
+    <BuildMacro Include="PROJECT_NAME"><Value>$(ProjectName)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>    
+    <BuildMacro Include="PROJECT_DIR"><Value>$(ProjectDir)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    <BuildMacro Include="SOLUTION_DIR"><Value>$(SolutionDir)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+
+    <!-- Macros defined in platform defaults -->
+    <BuildMacro Include="THIRD_PARTY_LIBARCH"><Value>$(THIRD_PARTY_LIBARCH)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+
+    <!-- Macros defined in configuration defaults -->
+    <BuildMacro Include="THIRD_PARTY_LIBEXT"><Value>$(THIRD_PARTY_LIBEXT)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    
+    <!-- Macros defined above -->
+    <BuildMacro Include="PROJECT_ROOT"><Value>$(PROJECT_ROOT)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    <BuildMacro Include="SOURCE_ROOT_REL"><Value>$(SOURCE_ROOT_REL)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    <BuildMacro Include="SOURCE_ROOT"><Value>$(SOURCE_ROOT)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+
+    <BuildMacro Include="BUILD_ROOT_REL"><Value>$(BUILD_ROOT_REL)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    <BuildMacro Include="BUILD_ROOT"><Value>$(BUILD_ROOT)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    <BuildMacro Include="BUILD_OUTDIR_REL"><Value>$(BUILD_OUTDIR_REL)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    <BuildMacro Include="BUILD_OUTDIR"><Value>$(BUILD_OUTDIR)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    <BuildMacro Include="BUILD_TEMPDIR_REL"><Value>$(BUILD_TEMPDIR_REL)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    <BuildMacro Include="BUILD_TEMPDIR"><Value>$(BUILD_TEMPDIR)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+
+    <BuildMacro Include="THIRD_PARTY_ROOT_REL"><Value>$(THIRD_PARTY_ROOT_REL)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    <BuildMacro Include="THIRD_PARTY_ROOT"><Value>$(THIRD_PARTY_ROOT)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    <BuildMacro Include="THIRD_PARTY_INCDIR_REL"><Value>$(THIRD_PARTY_INCDIR_REL)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    <BuildMacro Include="THIRD_PARTY_LIBDIR_PRE"><Value>$(THIRD_PARTY_LIBDIR_PRE)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    <BuildMacro Include="THIRD_PARTY_LIBDIR_SUF"><Value>$(THIRD_PARTY_LIBDIR_SUF)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    <BuildMacro Include="THIRD_PARTY_LIBDIR_REL"><Value>$(THIRD_PARTY_LIBDIR_REL)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+
+    <BuildMacro Include="BOOST_VERSION"><Value>$(BOOST_VERSION)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    <BuildMacro Include="BOOST_ROOT"><Value>$(BOOST_ROOT)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    <BuildMacro Include="BOOST_INCDIR"><Value>$(BOOST_INCDIR)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    <BuildMacro Include="BOOST_LIBDIR"><Value>$(BOOST_LIBDIR)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    <BuildMacro Include="BOOST_LIBS"><Value>$(BOOST_LIBS)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+  </ItemGroup>
+ 
+  <!-- Path properties -->
   <PropertyGroup>
-    <OutDir>$(BUILD_ROOT)$(Configuration)\Windows\$(Platform)\</OutDir>
-    <IntDir>$(OutDir)intermediate\$(ProjectName).build\</IntDir>
+    <OutDir>$(BUILD_OUTDIR)\</OutDir>
+    <IntDir>$(BUILD_TEMPDIR)\$(ProjectName).build\</IntDir>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
+  
+  <!-- Common compilation options -->
   <ItemDefinitionGroup>
     <ClCompile>
-      <PreprocessorDefinitions>BOOST_ALL_NO_LIB;WINVER=0x0601;_WIN32_WINNT=0x0601;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SOURCE_ROOT);$(BOOST_INCDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>WINVER=0x0601;_WIN32_WINNT=0x0601;_UNICODE;UNICODE;BOOST_ALL_NO_LIB;ONLY_C_LOCALE=1;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;NOMINMAX;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4068;4503</DisableSpecificWarnings>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
       <MinimalRebuild>false</MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(SOURCE_ROOT);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(BOOST_LIBDIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(BUILD_OUTDIR);$(BOOST_LIBDIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
     </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <BuildMacro Include="PROJECT_ROOT">
-      <Value>$(PROJECT_ROOT)</Value>
-    </BuildMacro>
-    <BuildMacro Include="SOURCE_ROOT">
-      <Value>$(SOURCE_ROOT)</Value>
-    </BuildMacro>
-    <BuildMacro Include="BUILD_ROOT">
-      <Value>$(BUILD_ROOT)</Value>
-    </BuildMacro>
-    <BuildMacro Include="THIRD_PARTY_ROOT">
-      <Value>$(THIRD_PARTY_ROOT)</Value>
-    </BuildMacro>
-    <BuildMacro Include="THIRD_PARTY_LIBDIR">
-      <Value>$(THIRD_PARTY_LIBDIR)</Value>
-    </BuildMacro>
-    <BuildMacro Include="THIRD_PARTY_INCDIR">
-      <Value>$(THIRD_PARTY_INCDIR)</Value>
-    </BuildMacro>
-    <BuildMacro Include="BOOST_VERSION">
-      <Value>$(BOOST_VERSION)</Value>
-    </BuildMacro>
-    <BuildMacro Include="BOOST_ROOT">
-      <Value>$(BOOST_ROOT)</Value>
-    </BuildMacro>
-    <BuildMacro Include="BOOST_INCDIR">
-      <Value>$(BOOST_INCDIR)</Value>
-    </BuildMacro>
-    <BuildMacro Include="BOOST_LIBDIR">
-      <Value>$(BOOST_LIBDIR)</Value>
-    </BuildMacro>
-  </ItemGroup>
+  
 </Project>

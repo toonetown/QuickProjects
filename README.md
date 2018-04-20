@@ -18,8 +18,7 @@ Run the `deploy.sh` script to deploy to a new project.  The target location must
 
  1.  Create new project (empty)
  2.  Change the `x86` configuration to `Win32`
- 3.  Add the `defaults` property pages
-     - Add architecture-specific ones first, then Debug/Release, then the common one last
+ 3.  Add the `defaults` property page
  4.  Add link libraries to `Linker | Input | Additional Dependencies` as `libmy_library$(THIRD_PARTY_LIBEXT)`
 
 
