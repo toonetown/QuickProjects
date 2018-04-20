@@ -25,7 +25,7 @@ Run the `deploy.sh` script to deploy to a new project.  The target location must
 
 ##### Xcode #####
 
- 1.  Create new project (empty)
+ 1.  Create new target (library or command line)
  2.  Remove everything except `Product Name`
  3.  Add link libraries to `Other Linker Flags` as `-lmy_library`
 
