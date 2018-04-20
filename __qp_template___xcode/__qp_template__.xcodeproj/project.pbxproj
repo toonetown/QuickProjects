@@ -8,8 +8,8 @@
 
 /* Begin PBXFileReference section */
 		88D848261F95163400AEF23A /* defaults.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = defaults.xcconfig; sourceTree = "<group>"; };
-		88D848271F95167200AEF23A /* defaults-debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "defaults-debug.xcconfig"; sourceTree = "<group>"; };
-		88D848281F95167200AEF23A /* defaults-release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "defaults-release.xcconfig"; sourceTree = "<group>"; };
+		88D848271F95167200AEF23A /* defaults-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "defaults-Debug.xcconfig"; sourceTree = "<group>"; };
+		88D848281F95167200AEF23A /* defaults-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "defaults-Release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -17,8 +17,8 @@
 			isa = PBXGroup;
 			children = (
 				88D848261F95163400AEF23A /* defaults.xcconfig */,
-				88D848271F95167200AEF23A /* defaults-debug.xcconfig */,
-				88D848281F95167200AEF23A /* defaults-release.xcconfig */,
+				88D848271F95167200AEF23A /* defaults-Debug.xcconfig */,
+				88D848281F95167200AEF23A /* defaults-Release.xcconfig */,
 			);
 			name = Configs;
 			sourceTree = "<group>";
@@ -66,7 +66,7 @@
 /* Begin XCBuildConfiguration section */
 		88F98B361ED76CAA00D57859 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88D848271F95167200AEF23A /* defaults-debug.xcconfig */;
+			baseConfigurationReference = 88D848271F95167200AEF23A /* defaults-Debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -107,7 +107,7 @@
 		};
 		88F98B371ED76CAA00D57859 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88D848281F95167200AEF23A /* defaults-release.xcconfig */;
+			baseConfigurationReference = 88D848281F95167200AEF23A /* defaults-Release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
