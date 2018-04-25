@@ -6,13 +6,94 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		8828659C2090D8CE0014D2C5 /* _test-main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8828659B2090D8CE0014D2C5 /* _test-main.cpp */; };
+		8828659F2090D99B0014D2C5 /* hello.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8828659D2090D99B0014D2C5 /* hello.cpp */; };
+		882865A02090D99B0014D2C5 /* hello.h in Headers */ = {isa = PBXBuildFile; fileRef = 8828659E2090D99B0014D2C5 /* hello.h */; };
+		882865A32090DD090014D2C5 /* hello_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 882865A12090DBF20014D2C5 /* hello_test.cpp */; };
+		882865A52090DD520014D2C5 /* lib__qp_template__.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 882865882090D7620014D2C5 /* lib__qp_template__.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		882865972090D8540014D2C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88F98B291ED76CAA00D57859 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 882865872090D7620014D2C5;
+			remoteInfo = __qp_template__;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8828658E2090D8040014D2C5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		882865882090D7620014D2C5 /* lib__qp_template__.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = lib__qp_template__.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		882865902090D8040014D2C5 /* unit-test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "unit-test"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8828659B2090D8CE0014D2C5 /* _test-main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "_test-main.cpp"; sourceTree = "<group>"; };
+		8828659D2090D99B0014D2C5 /* hello.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hello.cpp; sourceTree = "<group>"; };
+		8828659E2090D99B0014D2C5 /* hello.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hello.h; sourceTree = "<group>"; };
+		882865A12090DBF20014D2C5 /* hello_test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hello_test.cpp; sourceTree = "<group>"; };
 		88D848261F95163400AEF23A /* defaults.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = defaults.xcconfig; sourceTree = "<group>"; };
 		88D848271F95167200AEF23A /* defaults-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "defaults-Debug.xcconfig"; sourceTree = "<group>"; };
 		88D848281F95167200AEF23A /* defaults-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "defaults-Release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFrameworksBuildPhase section */
+		882865852090D7620014D2C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8828658D2090D8040014D2C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				882865A52090DD520014D2C5 /* lib__qp_template__.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
+		882865992090D8840014D2C5 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				8828659E2090D99B0014D2C5 /* hello.h */,
+				8828659D2090D99B0014D2C5 /* hello.cpp */,
+			);
+			name = Sources;
+			path = ../source;
+			sourceTree = "<group>";
+		};
+		8828659A2090D88E0014D2C5 /* Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8828659B2090D8CE0014D2C5 /* _test-main.cpp */,
+				882865A12090DBF20014D2C5 /* hello_test.cpp */,
+			);
+			name = "Unit Tests";
+			path = ../tests;
+			sourceTree = "<group>";
+		};
+		882865A42090DD520014D2C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		88D848291F95167500AEF23A /* Configs */ = {
 			isa = PBXGroup;
 			children = (
@@ -27,18 +108,72 @@
 			isa = PBXGroup;
 			children = (
 				88D848291F95167500AEF23A /* Configs */,
+				882865992090D8840014D2C5 /* Sources */,
+				8828659A2090D88E0014D2C5 /* Unit Tests */,
 				88F98B321ED76CAA00D57859 /* Products */,
+				882865A42090DD520014D2C5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		88F98B321ED76CAA00D57859 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				882865882090D7620014D2C5 /* lib__qp_template__.a */,
+				882865902090D8040014D2C5 /* unit-test */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		882865862090D7620014D2C5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				882865A02090D99B0014D2C5 /* hello.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		882865872090D7620014D2C5 /* __qp_template__ */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8828658B2090D7620014D2C5 /* Build configuration list for PBXNativeTarget "__qp_template__" */;
+			buildPhases = (
+				882865842090D7620014D2C5 /* Sources */,
+				882865852090D7620014D2C5 /* Frameworks */,
+				882865862090D7620014D2C5 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = __qp_template__;
+			productName = __qp_template__;
+			productReference = 882865882090D7620014D2C5 /* lib__qp_template__.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		8828658F2090D8040014D2C5 /* unit-test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 882865942090D8040014D2C5 /* Build configuration list for PBXNativeTarget "unit-test" */;
+			buildPhases = (
+				8828658C2090D8040014D2C5 /* Sources */,
+				8828658D2090D8040014D2C5 /* Frameworks */,
+				8828658E2090D8040014D2C5 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				882865982090D8540014D2C5 /* PBXTargetDependency */,
+			);
+			name = "unit-test";
+			productName = "unit-test";
+			productReference = 882865902090D8040014D2C5 /* unit-test */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		88F98B291ED76CAA00D57859 /* Project object */ = {
@@ -46,6 +181,14 @@
 			attributes = {
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "__qp_template-organization__";
+				TargetAttributes = {
+					882865872090D7620014D2C5 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					8828658F2090D8040014D2C5 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+				};
 			};
 			buildConfigurationList = 88F98B2C1ED76CAA00D57859 /* Build configuration list for PBXProject "__qp_template__" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -59,11 +202,71 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				882865872090D7620014D2C5 /* __qp_template__ */,
+				8828658F2090D8040014D2C5 /* unit-test */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXSourcesBuildPhase section */
+		882865842090D7620014D2C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8828659F2090D99B0014D2C5 /* hello.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8828658C2090D8040014D2C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				882865A32090DD090014D2C5 /* hello_test.cpp in Sources */,
+				8828659C2090D8CE0014D2C5 /* _test-main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		882865982090D8540014D2C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 882865872090D7620014D2C5 /* __qp_template__ */;
+			targetProxy = 882865972090D8540014D2C5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		882865892090D7620014D2C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8828658A2090D7620014D2C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		882865952090D8040014D2C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		882865962090D8040014D2C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		88F98B361ED76CAA00D57859 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 88D848271F95167200AEF23A /* defaults-Debug.xcconfig */;
@@ -147,6 +350,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8828658B2090D7620014D2C5 /* Build configuration list for PBXNativeTarget "__qp_template__" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				882865892090D7620014D2C5 /* Debug */,
+				8828658A2090D7620014D2C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		882865942090D8040014D2C5 /* Build configuration list for PBXNativeTarget "unit-test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				882865952090D8040014D2C5 /* Debug */,
+				882865962090D8040014D2C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		88F98B2C1ED76CAA00D57859 /* Build configuration list for PBXProject "__qp_template__" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

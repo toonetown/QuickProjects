@@ -36,8 +36,10 @@ find "${TARGET}" -name ".DS_Store" -exec rm -f {} \; &>/dev/null
 find "${TARGET}" -name "xcuserdata" -type d -exec rm -rf {} \; &>/dev/null
 
 echo "Renaming files..."
-find "${TARGET}" -d -name "${SRC_NAME}*" -print0 | while IFS= read -r -d '' _F; do
-    mv "${_F}" "$(echo "${_F}" | sed -E "s/${SRC_NAME}([\._][^\.]*)?$/${TGT_NAME}\1/g")" || exit $?
+while true; do
+    _F="$(find "${TARGET}" -name "${SRC_NAME}*" | head -n1)"
+    [ -n "${_F}" ] || break;
+    mv "${_F}" "$(echo "${_F}" | sed -E "s/${SRC_NAME}/${TGT_NAME}/")" || exit $?
 done
 
 echo "Update project name to ${TGT_NAME}..."
