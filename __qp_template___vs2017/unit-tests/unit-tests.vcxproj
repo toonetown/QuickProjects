@@ -29,9 +29,6 @@
     <LocalDebuggerCommandArguments>--run_test=* --show_progress=yes --log_level=error --catch_system_errors=yes --detect_memory_leaks=0</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <Import Project="$(SolutionDir)defaults.props" />
   <ItemGroup>
     <ProjectReference Include="..\__qp_template__\__qp_template__.vcxproj">
       <Project>{a615b4e5-8dd3-4493-8635-8d18ff05b6a4}</Project>
@@ -41,5 +38,13 @@
     <ClCompile Include="..\..\tests\hello_test.cpp" />
     <ClCompile Include="..\..\tests\_test-main.cpp" />
   </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(SolutionDir)\defaults.props" />
+  <ItemDefinitionGroup>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 </Project>

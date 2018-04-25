@@ -38,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		882865882090D7620014D2C5 /* lib__qp_template__.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = lib__qp_template__.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		882865902090D8040014D2C5 /* unit-test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "unit-test"; sourceTree = BUILT_PRODUCTS_DIR; };
+		882865902090D8040014D2C5 /* unit-tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "unit-tests"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8828659B2090D8CE0014D2C5 /* _test-main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "_test-main.cpp"; sourceTree = "<group>"; };
 		8828659D2090D99B0014D2C5 /* hello.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hello.cpp; sourceTree = "<group>"; };
 		8828659E2090D99B0014D2C5 /* hello.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hello.h; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				882865882090D7620014D2C5 /* lib__qp_template__.a */,
-				882865902090D8040014D2C5 /* unit-test */,
+				882865902090D8040014D2C5 /* unit-tests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,9 +155,9 @@
 			productReference = 882865882090D7620014D2C5 /* lib__qp_template__.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		8828658F2090D8040014D2C5 /* unit-test */ = {
+		8828658F2090D8040014D2C5 /* unit-tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 882865942090D8040014D2C5 /* Build configuration list for PBXNativeTarget "unit-test" */;
+			buildConfigurationList = 882865942090D8040014D2C5 /* Build configuration list for PBXNativeTarget "unit-tests" */;
 			buildPhases = (
 				8828658C2090D8040014D2C5 /* Sources */,
 				8828658D2090D8040014D2C5 /* Frameworks */,
@@ -168,9 +168,9 @@
 			dependencies = (
 				882865982090D8540014D2C5 /* PBXTargetDependency */,
 			);
-			name = "unit-test";
-			productName = "unit-test";
-			productReference = 882865902090D8040014D2C5 /* unit-test */;
+			name = "unit-tests";
+			productName = "unit-tests";
+			productReference = 882865902090D8040014D2C5 /* unit-tests */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -203,7 +203,7 @@
 			projectRoot = "";
 			targets = (
 				882865872090D7620014D2C5 /* __qp_template__ */,
-				8828658F2090D8040014D2C5 /* unit-test */,
+				8828658F2090D8040014D2C5 /* unit-tests */,
 			);
 		};
 /* End PBXProject section */
@@ -299,12 +299,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				LIBRARY_SEARCH_PATHS = (
-					"$(BOOST_LIBDIR)",
-					"$(inherited)",
-				);
 				ONLY_ACTIVE_ARCH = YES;
-				SYSTEM_HEADER_SEARCH_PATHS = "$(BOOST_INCDIR) $(inherited)";
 			};
 			name = Debug;
 		};
@@ -339,11 +334,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				LIBRARY_SEARCH_PATHS = (
-					"$(BOOST_LIBDIR)",
-					"$(inherited)",
-				);
-				SYSTEM_HEADER_SEARCH_PATHS = "$(BOOST_INCDIR) $(inherited)";
 			};
 			name = Release;
 		};
@@ -359,7 +349,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		882865942090D8040014D2C5 /* Build configuration list for PBXNativeTarget "unit-test" */ = {
+		882865942090D8040014D2C5 /* Build configuration list for PBXNativeTarget "unit-tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				882865952090D8040014D2C5 /* Debug */,

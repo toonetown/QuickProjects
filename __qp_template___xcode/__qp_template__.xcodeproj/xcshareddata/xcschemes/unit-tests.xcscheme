@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8828658F2090D8040014D2C5"
-               BuildableName = "unit-test"
-               BlueprintName = "unit-test"
+               BuildableName = "unit-tests"
+               BlueprintName = "unit-tests"
                ReferencedContainer = "container:__qp_template__.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8828658F2090D8040014D2C5"
-            BuildableName = "unit-test"
-            BlueprintName = "unit-test"
+            BuildableName = "unit-tests"
+            BlueprintName = "unit-tests"
             ReferencedContainer = "container:__qp_template__.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8828658F2090D8040014D2C5"
-            BuildableName = "unit-test"
-            BlueprintName = "unit-test"
+            BuildableName = "unit-tests"
+            BlueprintName = "unit-tests"
             ReferencedContainer = "container:__qp_template__.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -71,8 +71,8 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "--log_level=test_suite"
-            isEnabled = "NO">
+            argument = "--log_level=error"
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--catch_system_errors=yes"
@@ -97,8 +97,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8828658F2090D8040014D2C5"
-            BuildableName = "unit-test"
-            BlueprintName = "unit-test"
+            BuildableName = "unit-tests"
+            BlueprintName = "unit-tests"
             ReferencedContainer = "container:__qp_template__.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

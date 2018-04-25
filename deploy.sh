@@ -57,7 +57,10 @@ for _T in ${TGT_TAGS}; do
     done
 done
 
-git -C "${TARGET}" init && git -C "${TARGET}" add . && git -C "${TARGET}" commit -m 'First Commit'
+git -C "${TARGET}" init && \
+git -C "${TARGET}" config core.autocrlf false && \
+git -C "${TARGET}" add . && \
+git -C "${TARGET}" commit -m 'First Commit'
 
 echo "Done!  Project deployed to '${TARGET}'"
 exit 0
