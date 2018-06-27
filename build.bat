@@ -24,6 +24,9 @@
 :: MSBUILD=c:\Path\To\MSBuild\Version
 ::   Default: c:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0
 ::
+:: BUILD_SCHEME="scheme-to-build"
+::   Default: unit-tests
+::
 :: The following variable is used by the macOS script but is documented here for completeness
 ::
 :: XCODE=/Path/To/Xcode.app
@@ -33,6 +36,7 @@ SET ROOT_DIR=%~dp0
 
 IF "%MSBUILD%"=="" SET MSBUILD=c:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0
 IF "%PROJ_NAME%"=="" SET PROJ_NAME=__qp_template__
+IF "%BUILD_SCHEME%"=="" SET BUILD_SCHEME=unit-tests
 SET DOCLEAN=no
 
 SET PLATS=
@@ -71,7 +75,7 @@ echo ====================
 echo Building platforms (%PLATS% ) configurations (%CONFS% ) with %MSBUILD%...
 FOR %%P IN (%PLATS%) DO (
     FOR %%T IN (%CONFS%) DO (
-        "%MSBUILD%\Bin\MSBuild" %PROJ_NAME%.sln /t:Build ^
+        "%MSBUILD%\Bin\MSBuild" %PROJ_NAME%.sln /t:"%BUILD_SCHEME%" ^
                                                 /p:Configuration=%%T ^
                                                 /p:Platform=%%P ^
                                                 /m:%NUMBER_OF_PROCESSORS% || (

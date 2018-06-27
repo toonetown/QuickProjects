@@ -22,6 +22,9 @@
 # XCODE=/Path/To/Xcode.app
 #   Default: /Applications/Xcode.app
 #
+# BUILD_SCHEME="scheme-to-build"
+#   Default: unit-tests
+#
 # The following variable is used by the Windows script, but is documented here for completeness
 #
 # MSBUILD=c:\Path\To\MSBuild\Version
@@ -33,6 +36,7 @@ cd ->/dev/null
 
 : ${XCODE:="/Applications/Xcode.app"}
 : ${PROJ_NAME:="__qp_template__"}
+: ${BUILD_SCHEME:="unit-tests"}
 DOCLEAN="no"
 
 : ${XCODE:="/Applications/Xcode.app"}
@@ -65,7 +69,10 @@ fi
 echo "===================="
 echo "Building configurations (${CONFS} ) with ${XCODE}..."
 for T in ${CONFS}; do
-    "${XCODE}/Contents/Developer/usr/bin/xcodebuild" -project ${PROJ_NAME}.xcodeproj -configuration ${T} build || {
+    "${XCODE}/Contents/Developer/usr/bin/xcodebuild" -project ${PROJ_NAME}.xcodeproj \
+                                                     -scheme "${BUILD_SCHEME}" \
+                                                     -configuration ${T} \
+                                                     build || {
 	    exit $?
 	}
 done
