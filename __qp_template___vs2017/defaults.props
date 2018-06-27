@@ -33,7 +33,11 @@
     <BOOST_ROOT>$(THIRD_PARTY_ROOT)\boost\boost-$(BOOST_VERSION)</BOOST_ROOT>
     <BOOST_INCDIR>$(BOOST_ROOT)\$(THIRD_PARTY_INCDIR_REL)</BOOST_INCDIR>
     <BOOST_LIBDIR>$(BOOST_ROOT)\$(THIRD_PARTY_LIBDIR_REL)</BOOST_LIBDIR>
-    <BOOST_LIBS>libboost_chrono$(THIRD_PARTY_LIBEXT);libboost_date_time$(THIRD_PARTY_LIBEXT);libboost_filesystem$(THIRD_PARTY_LIBEXT);libboost_program_options$(THIRD_PARTY_LIBEXT);libboost_thread$(THIRD_PARTY_LIBEXT);libboost_system$(THIRD_PARTY_LIBEXT)</BOOST_LIBS>
+    <BOOST_LIBS>libboost_thread$(THIRD_PARTY_LIBEXT);libboost_system$(THIRD_PARTY_LIBEXT)</BOOST_LIBS>
+    <BOOST_DEFINES>BOOST_ALL_NO_LIB;BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE;</BOOST_DEFINES>
+
+    <!-- Windows libraries -->
+    <WIN32_LIBS></WIN32_LIBS>
   </PropertyGroup>
  
   <!-- Export the user macros -->
@@ -76,6 +80,9 @@
     <BuildMacro Include="BOOST_INCDIR"><Value>$(BOOST_INCDIR)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
     <BuildMacro Include="BOOST_LIBDIR"><Value>$(BOOST_LIBDIR)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
     <BuildMacro Include="BOOST_LIBS"><Value>$(BOOST_LIBS)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+    <BuildMacro Include="BOOST_DEFINES"><Value>$(BOOST_DEFINES)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
+
+    <BuildMacro Include="WIN32_LIBS"><Value>$(WIN32_LIBS)</Value><EnvironmentVariable>true</EnvironmentVariable></BuildMacro>
   </ItemGroup>
  
   <!-- Path properties -->
@@ -90,7 +97,7 @@
   <ItemDefinitionGroup>
     <ClCompile>
       <AdditionalIncludeDirectories>$(SOURCE_ROOT);$(BOOST_INCDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WINVER=0x0601;_WIN32_WINNT=0x0601;_UNICODE;UNICODE;BOOST_ALL_NO_LIB;ONLY_C_LOCALE=1;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;NOMINMAX;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WINVER=0x0601;_WIN32_WINNT=0x0601;_UNICODE;UNICODE;$(BOOST_DEFINES);ONLY_C_LOCALE=1;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;NOMINMAX;%(PreprocessorDefinitions);</PreprocessorDefinitions>
       <DisableSpecificWarnings>4068;4503</DisableSpecificWarnings>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <WarningLevel>Level4</WarningLevel>
@@ -105,6 +112,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(BUILD_OUTDIR);$(BOOST_LIBDIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(BOOST_LIBS);$(WIN32_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
     </Link>
     <ProjectReference>
