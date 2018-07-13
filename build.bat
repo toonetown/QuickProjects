@@ -61,8 +61,8 @@ IF "%PLATS%"=="" SET PLATS= x64 Win32
 PUSHD "%ROOT_DIR%%PROJ_NAME%_vs2017" || exit /B 1
 
 IF "%DOCLEAN%"=="yes" (
-	ECHO ====================
-	ECHO Cleaning previous builds...
+    ECHO ====================
+    ECHO Cleaning previous builds...
     rmdir /Q /S "%ROOT_DIR%build" 2>nul
     ECHO.
 )
@@ -71,14 +71,17 @@ IF "%CLEANONLY%"=="yes" (
     exit /B 0
 )
 
-echo ====================
-echo Building platforms (%PLATS% ) configurations (%CONFS% ) with %MSBUILD%...
+ECHO ====================
+ECHO Building platforms (%PLATS% ) configurations (%CONFS% ) with %MSBUILD%...
 FOR %%P IN (%PLATS%) DO (
     FOR %%T IN (%CONFS%) DO (
         "%MSBUILD%\Bin\MSBuild" %PROJ_NAME%.sln /t:"%BUILD_SCHEME%" ^
                                                 /p:Configuration=%%T ^
                                                 /p:Platform=%%P ^
-                                                /m:%NUMBER_OF_PROCESSORS% || (
+                                                /m:%NUMBER_OF_PROCESSORS% && "%ROOT_DIR%build\%%P\%%T\unit-tests.exe" ^
+                                                --show_progress=yes ^
+                                                --catch_system_errors=yes ^
+                                                --detect_memory_leaks=0 || (
             POPD
             exit /B 1
         )

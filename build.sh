@@ -69,10 +69,13 @@ fi
 echo "===================="
 echo "Building configurations (${CONFS} ) with ${XCODE}..."
 for T in ${CONFS}; do
-    "${XCODE}/Contents/Developer/usr/bin/xcodebuild" -project ${PROJ_NAME}.xcodeproj \
-                                                     -scheme "${BUILD_SCHEME}" \
-                                                     -configuration ${T} \
-                                                     build || {
-	    exit $?
-	}
+  "${XCODE}/Contents/Developer/usr/bin/xcodebuild" -project ${PROJ_NAME}.xcodeproj \
+                                                   -scheme "${BUILD_SCHEME}" \
+                                                   -configuration ${T} \
+                                                   build && \
+  "${ROOT_DIR}/build/macOS/${T}/unit-tests" --show_progress=yes \
+                                            --catch_system_errors=yes \
+                                            --detect_memory_leaks=0 || {
+    exit $?
+  }
 done
