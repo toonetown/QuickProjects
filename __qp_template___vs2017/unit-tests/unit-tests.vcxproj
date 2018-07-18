@@ -26,7 +26,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-    <LocalDebuggerCommandArguments>--run_test=* --show_progress=yes --log_level=error --catch_system_errors=yes --detect_memory_leaks=0</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>--show_progress=yes --catch_system_errors=yes --detect_memory_leaks=0</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <ItemGroup>
